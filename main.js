@@ -1,5 +1,5 @@
 alert ("please select which calculator you want to use (1) - Basic , (2) Advance or (3) - BMI") ;
-var selection = prompt("which one");
+var selection = prompt("which one you want to use");
 
 
 if(selection =="1"){
@@ -36,11 +36,13 @@ if(selection =="1"){
     
 
         if(advOperator == "**"){
+            alert ("Power of");
             var firstNumber = prompt("Please enter your first number");
             var secondNumber = prompt("Please enter your second number");
             answer = Number (firstNumber) ** Number(secondNumber);
             alert ("Power of = " + firstNumber + " & "  + secondNumber + " = " + answer);
         }else if(advOperator == "sqrt"){
+            alert ("square root");
             var firstNumber = prompt("Please enter your first number");
             answer = Math.sqrt (Number(firstNumber));
             alert ("Square of = " + firstNumber + " is " + " = " + answer);
@@ -50,28 +52,27 @@ if(selection =="1"){
         
 }else if (selection =="3"){
     alert ("BMI calculator");
-    var selectionMeasuring = prompt(" 1 = metric or 2 = imperial");
+    var selectionMeasuring = prompt(" (1) = metric or (2) = imperial");
     var answer
 
     if (selectionMeasuring == "1"){
+        alert("metric")
         var height = prompt("meters");
-        var weight = prompt("kilogram");
+        var weight = prompt("kilograms");
         if(height && weight){
-        answer = weight /(height*height)
-        alert ("BMI = " + height + weight + "=" + answer);
-
-        }else if (selectionMeasuring == "2"){
+            answer = Number( weight) / Number((height*height));
+            alert ("BMI = " + answer);
+        }
+    }else if (selectionMeasuring == "2"){
+            alert("imperial")
             var height = prompt("inches");
             var weight = prompt("pounds");
             if(height && weight){
-                answer = 703 * weight/(height*height);
-                alert("BMI = " + height + weight +  " = " + answer)
-            }
-        
-        
-        }   
-    } 
-}else{
-    alert (" Please follow steps again")
-}
+                answer = 703 * Number (weight) / Number((height*height));
+                alert("BMI = " + answer);
+            }       
+        }
+    } else{ 
+        alert (" Please follow steps again")
+    }
 
